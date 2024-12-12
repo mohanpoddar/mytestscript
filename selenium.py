@@ -1,3 +1,19 @@
+
+===========
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+# Enable performance logging
+capabilities = DesiredCapabilities.CHROME.copy()
+capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
+
+# Initialize WebDriver with desired capabilities
+service = Service("/path/to/chromedriver")  # Replace with your chromedriver path
+driver = webdriver.Chrome(service=service, desired_capabilities=capabilities)
+
+==============
+
 def log_filter(log_) -> bool:
     return (
         # is an actual response
